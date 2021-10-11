@@ -7,3 +7,5 @@ class UserController {
     return res.status(200).json(users)
   }
 }
+
+export default new UserController()
