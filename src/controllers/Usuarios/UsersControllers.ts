@@ -16,9 +16,8 @@ class UserController {
     try {
       const hash = await bcrypt.hash(req.body.password, 10)
       req.body.password = hash
-      const users = await Users.create(req.body)
-      const { password, ...user } = users._doc
-      return res.status(201).json(user)
+      await Users.create(req.body)
+      return res.status(201).json({ message: 'usuário cadastrado com sucesso' })
     } catch (error) {
       return res.status(400).json(error)
     }
