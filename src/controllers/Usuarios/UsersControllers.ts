@@ -12,7 +12,7 @@ class UserController {
       const users = await Users.create(req.body)
       return res.status(201).json(users)
     } catch (error) {
-      return res.status(201).json(error)
+      return res.status(400).json(error)
     }
   }
 }
