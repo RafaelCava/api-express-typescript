@@ -5,6 +5,6 @@ import UserControllers from './controllers/Usuarios/UsersControllers'
 const routes = Router()
 
 routes.route('/usuarios')
-  .get(UserControllers.index)
+  .get(UserControllers.teste)
 
 export default routes
