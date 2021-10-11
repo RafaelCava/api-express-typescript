@@ -1,5 +1,11 @@
 import { Schema, model } from 'mongoose'
 
+interface UserInterface {
+  email?: string,
+  firstName?: string,
+  lastName?: string
+}
+
 const UserSchema = new Schema({
   email: String,
   firstName: String,
@@ -8,4 +14,4 @@ const UserSchema = new Schema({
   timestamps: true
 })
 
-export default model('User', UserSchema)
+export default model<UserInterface>('User', UserSchema)
