@@ -10,7 +10,6 @@ class UserController {
   public async createUser (req: Request, res: Response): Promise<Response> {
     try {
       const users = await Users.create(req.body)
-      console.log(req.body)
       return res.status(201).json(users)
     } catch (error) {
       return res.status(400).json(error)
