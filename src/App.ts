@@ -19,7 +19,8 @@ class App {
   }
 
   private database (): void {
-    mongoose.connect('mongodb://localhost:27017/tsnode')
+    const uri = 'mongodb://localhost:27017/test'
+    mongoose.connect(uri)
   }
 
   private routes (): void {
