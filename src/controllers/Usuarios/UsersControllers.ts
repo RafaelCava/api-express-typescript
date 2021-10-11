@@ -7,6 +7,10 @@ class UserController {
     console.log(users)
     return res.status(200).json(users)
   }
+
+  public async teste (req: Request, res: Response): Promise<Response> {
+    return res.status(200).json('funciona')
+  }
 }
 
 export default new UserController()
