@@ -1,3 +1,4 @@
-"use strict";const a = 10;
+"use strict"; function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }var _App = require('./App'); var _App2 = _interopRequireDefault(_App);
 
-console.log(a)
+const port = 3333
+_App2.default.listen(port)
