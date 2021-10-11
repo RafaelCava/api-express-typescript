@@ -20,10 +20,7 @@ class App {
 
   private database (): void {
     const uri = 'mongodb://localhost:27017/test'
-    mongoose.connect(uri, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true
-    })
+    mongoose.connect(uri)
   }
 
   private routes (): void {
