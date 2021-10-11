@@ -1,6 +1,6 @@
 import { Request, Response } from 'express'
 
-import Users from '../../schemas/Users'
+import Users from '../../schemas/UserSchema'
 class UserController {
   public async index (req: Request, res: Response): Promise<Response> {
     const users = Users.find()
