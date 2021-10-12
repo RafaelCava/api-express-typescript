@@ -1,10 +1,17 @@
 # Requerimentos Funcionais
+
 [x] - Criar Usuário
+
 [] - Editar Usuário
+
 [] - Criar Produto
+
 [] - Editar Produto
+
 [] - Detalhar Dados do Usuário (Autenticado)
+
 [] - Listar produtos pelo Usuário (Autenticado)
+
 
 # Regras de aplicação
   - Um usuário só deve ter acesso aos dados referentes a sua conta
