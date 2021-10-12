@@ -3,13 +3,30 @@ import { Request, Response } from 'express'
 import Users from '../../schemas/UserSchema'
 
 import bcrypt from 'bcrypt'
+
+import jwt from 'jsonwebtoken'
+
+import secureToken from '../Login/secureToken'
 class UserController {
   public async index (req: Request, res: Response): Promise<Response> {
-    const users = await Users.find()
-    users.map(user => {
-      user.password = null
-    })
-    return res.status(200).json(users)
+    const authorization = req.headers.authorization
+    const bearer = authorization.split(' ')
+    const [, token] = bearer
+    try {
+      const userToken = jwt.verify(token, secureToken)
+
+      const { id } = userToken
+
+      const users = await Users.find({ _id: id })
+
+      const { _doc: user } = users[0]
+
+      const { password, ...userSemSenha } = user
+
+      return res.status(200).json(userSemSenha)
+    } catch (error) {
+      return res.status(400).json(error)
+    }
   }
 
   public async createUser (req: Request, res: Response): Promise<Response> {
