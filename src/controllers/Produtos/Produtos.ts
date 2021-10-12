@@ -15,7 +15,7 @@ class ProdutosControllers {
       const produtos = await ProdutosSchema.find({ idCliente: user.id })
       return res.status(200).json(produtos)
     } catch (error) {
-      return res.status(403).json(error)
+      return res.status(400).json(error)
     }
   }
 }
