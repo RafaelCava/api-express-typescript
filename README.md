@@ -31,3 +31,4 @@ yarn start
  - Json Web Token
  - Express
  - Eslint
+ - Sucrase
