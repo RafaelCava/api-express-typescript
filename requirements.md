@@ -1,6 +1,6 @@
 # Requerimentos Funcionais
 
-[x] - Criar Usuário
+[ x ] - Criar Usuário
 
 [] - Editar Usuário (Autenticado)
 
