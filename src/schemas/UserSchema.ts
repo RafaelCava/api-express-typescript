@@ -1,6 +1,6 @@
-import { Schema, model } from 'mongoose'
+import { Schema, model, Document } from 'mongoose'
 
-interface UserInterface {
+interface UserInterface extends Document {
   email?: string,
   firstName?: string,
   lastName?: string,
