@@ -47,7 +47,7 @@ class ProdutosControllers {
       }
       req.body.idCliente = idCliente
       await ProdutosSchema.create(req.body)
-      return res.status(201).json({ message: 'usuário cadastrado com sucesso' })
+      return res.status(201).json({ message: 'Produto cadastrado com sucesso' })
     } catch (error) {
       return res.status(400).json(error)
     }
