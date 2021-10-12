@@ -8,12 +8,17 @@ class Login {
     const { email, password: senhaBody } = req.body
     try {
       const users = await User.find({ email })
+
       const user = users[0]
+
       const { password } = user
+
       const result = await bcrypt.compare(senhaBody, password)
+
       if (!result) {
         return res.status(400).json({ message: 'usuário ou senha inválidos' })
       }
+
       const token = jwt.sign({
         id: user._id,
         nome: user.firstName,
@@ -21,6 +26,7 @@ class Login {
       }, secureToken, {
         expiresIn: '8h'
       })
+
       return res.status(200).json({ token })
     } catch (error) {
       return res.status(400).json(error)
