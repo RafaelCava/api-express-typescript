@@ -10,6 +10,9 @@ import secureToken from '../Login/secureToken'
 class UserController {
   public async index (req: Request, res: Response): Promise<Response> {
     const authorization = req.headers.authorization
+    if (!authorization) {
+      return res.status(403).json({ message: 'Falta o token' })
+    }
     const bearer = authorization.split(' ')
     const [, token] = bearer
     try {
