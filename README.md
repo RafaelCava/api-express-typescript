@@ -20,3 +20,12 @@ npm run start
 #or
 yarn start
 ```
+
+
+# Tecnologias Utilizadas
+ - TypeScript
+ - Node
+ - MongoDB
+ - Bcrypt
+ - Json Web Token
+ - Express
