@@ -4,13 +4,13 @@
 
 [] - Editar Usuário (Autenticado)
 
-[] - Criar Produto
+[ x ] - Criar Produto
 
 [] - Editar Produto (Autenticado)
 
-[] - Detalhar Dados do Usuário (Autenticado)
+[ x ] - Detalhar Dados do Usuário (Autenticado)
 
-[] - Listar produtos pelo Usuário (Autenticado)
+[ x ] - Listar produtos pelo Usuário (Autenticado)
 
 [ x ] - Criar rota para autenticação de usuário
 
