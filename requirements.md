@@ -12,6 +12,7 @@
 
 [] - Listar produtos pelo Usuário (Autenticado)
 
+[ x ] - Criar rota para autenticação de usuário
 
 # Regras de aplicação
   - Um usuário só deve ter acesso aos dados referentes a sua conta
