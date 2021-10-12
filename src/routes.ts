@@ -9,6 +9,6 @@ routes.route('/usuarios')
   .get(UserControllers.index)
   .post(UserControllers.createUser)
 
-routes.get('login', Login.index)
+routes.get('/login', Login.index)
 
 export default routes
