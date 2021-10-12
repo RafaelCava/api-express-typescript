@@ -1,5 +1,5 @@
 import { Request, Response } from 'express'
-import User from '../../schemas/UserSchema'
+import User from '../../schemas/UserSchemas/UserSchema'
 import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
 import secureToken from './secureToken'

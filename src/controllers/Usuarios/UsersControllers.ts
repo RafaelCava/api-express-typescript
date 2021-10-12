@@ -1,6 +1,6 @@
 import { Request, Response } from 'express'
 
-import Users from '../../schemas/UserSchema'
+import Users from '../../schemas/UserSchemas/UserSchema'
 
 import bcrypt from 'bcrypt'
 
