@@ -26,7 +26,8 @@ yarn start
  
  - TypeScript
  - Node
- - MongoDB
+ - MongoDB (Mongoose)
  - Bcrypt
  - Json Web Token
  - Express
+ - Eslint
