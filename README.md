@@ -23,6 +23,7 @@ yarn start
 
 
 # Tecnologias Utilizadas
+ 
  - TypeScript
  - Node
  - MongoDB
