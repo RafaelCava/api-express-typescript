@@ -15,6 +15,6 @@ routes.get('/login', Login.index)
 
 routes.route('/produtos')
   .get(ProdutosControllers.index)
-  .post()
+  .post(ProdutosControllers.createProduto)
 
 export default routes
