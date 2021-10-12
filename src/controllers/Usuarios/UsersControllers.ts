@@ -2,6 +2,8 @@ import { Request, Response } from 'express'
 
 import Users from '../../schemas/UserSchemas/UserSchema'
 
+import Produtos from '../../schemas/ProdutosSchemas/ProdutosSchema'
+
 import bcrypt from 'bcrypt'
 
 import jwt from 'jsonwebtoken'
@@ -22,9 +24,12 @@ class UserController {
 
       const users = await Users.find({ _id: id })
 
+      const listaProdutos = await Produtos.find({ idCliente: id })
       const { _doc: user } = users[0]
 
       const { password, ...userSemSenha } = user
+
+      userSemSenha.produtos = listaProdutos
 
       return res.status(200).json(userSemSenha)
     } catch (error) {
