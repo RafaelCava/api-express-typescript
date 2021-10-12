@@ -2,11 +2,11 @@
 
 [x] - Criar Usuário
 
-[] - Editar Usuário
+[] - Editar Usuário (Autenticado)
 
 [] - Criar Produto
 
-[] - Editar Produto
+[] - Editar Produto (Autenticado)
 
 [] - Detalhar Dados do Usuário (Autenticado)
 
