@@ -49,7 +49,7 @@ class UserController {
     }
   }
 
-  public async updateUser (req: Request, res: Response): Promise<Response> {
+  public async updatePutUser (req: Request, res: Response): Promise<Response> {
     let { email, firstName, lastName, password } = req.body
     const { id } = req.user
     if (!email) {
