@@ -19,15 +19,7 @@ class ProdutosControllers {
     }
   }
 
-// TODO inserir middleware que faz verificação do token e retorna o usuario na requisição
   public async createProduto (req: Request, res: Response): Promise<Response> {
-    const { nome, quantidade, preco, descricao } = req.body
-    const authorization = req.headers.authorization
-    if (!authorization) {
-      return res.status(403).json({ message: 'Falta o token' })
-    }
-    const bearer = authorization.split(' ')
-    const [, token] = bearer
     try {
       const user = jwt.verify(token, secureToken)
       const { id: idCliente } = user
