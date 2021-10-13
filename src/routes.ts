@@ -3,7 +3,7 @@ import Login from './controllers/Login/Login'
 
 import UserControllers from './controllers/Usuarios/UsersControllers'
 
-import ProdutosControllers from './controllers/Produtos/Produtos'
+import ProdutosControllers from './controllers/Produtos/ProdutosControllers'
 import verifyLogin from './middlewares/verifyLogin'
 
 const routes = Router()

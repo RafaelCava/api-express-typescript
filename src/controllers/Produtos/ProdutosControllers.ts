@@ -37,6 +37,41 @@ class ProdutosControllers {
       return res.status(400).json(error)
     }
   }
+
+  public async updatePutProdutos (req: Request, res: Response): Promise<Response> {
+    let { email, firstName, lastName, password } = req.body
+    const { id } = req.user
+    if (!email) {
+      return res.status(400).json({ message: 'Falta o campo email' })
+    }
+    if (!firstName) {
+      return res.status(400).json({ message: 'Falta o campo firstName' })
+    }
+    if (!lastName) {
+      return res.status(400).json({ message: 'Falta o campo lastName' })
+    }
+    if (!password) {
+      return res.status(400).json({ message: 'Falta o campo password' })
+    }
+    try {
+      const hash = await bcrypt.hash(password, 10)
+      password = hash
+      await Users.updateOne({ _id: id }, { $set: { email, firstName, lastName, password } })
+      return res.status(201).json({ message: 'Atualização de usuário concluida' })
+    } catch (error) {
+      return res.status(400).json({ error })
+    }
+  }
+
+  public async deleteProduto (req: Request, res: Response): Promise<Response> {
+    const { id } = req.body
+    try {
+      await ProdutosSchema.deleteOne({ _id: id })
+      return res.status(200).json({ message: 'Usuário deletado com sucesso!!' })
+    } catch (error) {
+      return res.status(400).json({ error })
+    }
+  }
 }
 
 export default new ProdutosControllers()
