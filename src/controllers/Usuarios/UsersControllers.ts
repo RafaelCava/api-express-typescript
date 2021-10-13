@@ -38,8 +38,21 @@ class UserController {
   }
 
   public async createUser (req: Request, res: Response): Promise<Response> {
+    const { email, firstName, lastName, password } = req.body
+    if (!email) {
+      return res.status(400).json({ message: 'Falta o campo email' })
+    }
+    if (!firstName) {
+      return res.status(400).json({ message: 'Falta o campo firstName' })
+    }
+    if (!lastName) {
+      return res.status(400).json({ message: 'Falta o campo lastName' })
+    }
+    if (!password) {
+      return res.status(400).json({ message: 'Falta o campo password' })
+    }
     try {
-      const hash = await bcrypt.hash(req.body.password, 10)
+      const hash = await bcrypt.hash(password, 10)
       req.body.password = hash
       await Users.create(req.body)
       return res.status(201).json({ message: 'usuário cadastrado com sucesso' })
