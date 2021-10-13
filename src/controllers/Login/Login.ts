@@ -29,7 +29,14 @@ class Login {
 
       return res.status(200).json({ token })
     } catch (error) {
-      return res.status(400).json(error)
+      switch (error) {
+        case {}:
+          return res.status(400).json(error)
+          break
+        default:
+          return res.status(400).json(error)
+          break
+      }
     }
   }
 }

@@ -14,6 +14,7 @@ module.exports = {
     sourceType: 'module'
   },
   rules: {
-    'array-callback-return': 'off'
+    'array-callback-return': 'off',
+    'no-unreachable': 'off'
   }
 }
