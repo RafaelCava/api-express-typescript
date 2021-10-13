@@ -14,11 +14,11 @@
 
 [] - Deletar Produto (Autenticado)
 
-[ x ] - Detalhar Dados do Usuário (Autenticado)
+[x] - Detalhar Dados do Usuário (Autenticado)
 
-[ x ] - Listar produtos pelo Usuário (Autenticado)
+[x] - Listar produtos pelo Usuário (Autenticado)
 
-[ x ] - Criar rota para autenticação de usuário
+[x] - Criar rota para autenticação de usuário
 
 # Regras de aplicação
   - Um usuário só deve ter acesso aos dados referentes a sua conta
