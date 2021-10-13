@@ -60,7 +60,14 @@ class ProdutosControllers {
       return res.status(400).json({ message: 'Falta o campo idProduto' })
     }
     try {
-      await ProdutosSchema.updateOne({ _id: idProduto }, { idCliente: idCliente }, { $set: { nome, quantidade, preco, descricao } })
+      const produto = await ProdutosSchema.find({ _id: idProduto })
+      if (!produto) {
+        return res.status(400).json({ message: 'Produto não localizado!!' })
+      }
+      if (produto.idCliente !== idCliente) {
+        return res.status(400).json({ message: 'Produto não pertence a você!!' })
+      }
+      await ProdutosSchema.updateOne({ _id: idProduto }, { $set: { nome, quantidade, preco, descricao } })
       return res.status(201).json({ message: 'Atualização de usuário concluida' })
     } catch (error) {
       return res.status(400).json({ error })
@@ -68,7 +75,7 @@ class ProdutosControllers {
   }
 
   public async deleteProduto (req: Request, res: Response): Promise<Response> {
-    const { id } = req.body
+    const { id } = req.params
     const { id: idUser } = req.user
     try {
       await ProdutosSchema.deleteOne({ _id: id, idCliente: idUser })

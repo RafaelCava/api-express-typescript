@@ -23,6 +23,8 @@ routes.route('/usuarios')
 routes.route('/produtos')
   .get(ProdutosControllers.index)
   .post(ProdutosControllers.createProduto)
+
+routes.route('/produtos/:id')
   .put(ProdutosControllers.updatePutProdutos)
   .delete(ProdutosControllers.deleteProduto)
 
