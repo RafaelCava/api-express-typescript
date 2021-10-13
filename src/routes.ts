@@ -17,6 +17,7 @@ routes.use(verifyLogin.index)
 
 routes.route('/usuarios')
   .get(UserControllers.index)
+  .put(UserControllers.updateUser)
 
 routes.route('/produtos')
   .get(ProdutosControllers.index)
