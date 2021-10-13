@@ -50,7 +50,7 @@ class UserController {
   }
 
   public async updateUser (req: Request, res: Response): Promise<Response> {
-    const { email, firstName, lastName, password } = req.body
+    let { email, firstName, lastName, password } = req.body
     const { id } = req.user
     if (!email) {
       return res.status(400).json({ message: 'Falta o campo email' })
@@ -66,7 +66,7 @@ class UserController {
     }
     try {
       const hash = await bcrypt.hash(password, 10)
-      req.body.password = hash
+      password = hash
       await Users.updateOne({ _id: id }, { $set: { email, firstName, lastName, password } })
       return res.status(201).json({ message: 'Atualização de usuário concluida' })
     } catch (error) {
