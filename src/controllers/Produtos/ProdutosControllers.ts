@@ -65,8 +65,9 @@ class ProdutosControllers {
 
   public async deleteProduto (req: Request, res: Response): Promise<Response> {
     const { id } = req.body
+    const { id: idUser } = req.user
     try {
-      await ProdutosSchema.deleteOne({ _id: id })
+      await ProdutosSchema.deleteOne({ _id: id, idCliente: idUser })
       return res.status(200).json({ message: 'Usuário deletado com sucesso!!' })
     } catch (error) {
       return res.status(400).json({ error })
