@@ -39,24 +39,28 @@ class ProdutosControllers {
   }
 
   public async updatePutProdutos (req: Request, res: Response): Promise<Response> {
-    let { email, firstName, lastName, password } = req.body
-    const { id } = req.user
-    if (!email) {
-      return res.status(400).json({ message: 'Falta o campo email' })
+    const { nome, quantidade, preco, descricao, idProduto } = req.body
+    const { id: idCliente } = req.user
+    if (!nome) {
+      return res.status(400).json({ message: 'Falta o campo nome' })
     }
-    if (!firstName) {
-      return res.status(400).json({ message: 'Falta o campo firstName' })
+    if (!quantidade) {
+      return res.status(400).json({ message: 'Falta o campo quantidade' })
     }
-    if (!lastName) {
-      return res.status(400).json({ message: 'Falta o campo lastName' })
+    if (!idCliente) {
+      return res.status(403).json({ message: 'Falta o campo idCliente' })
     }
-    if (!password) {
-      return res.status(400).json({ message: 'Falta o campo password' })
+    if (!preco) {
+      return res.status(400).json({ message: 'Falta o campo preco' })
+    }
+    if (!descricao) {
+      return res.status(400).json({ message: 'Falta o campo descricao' })
+    }
+    if (!idProduto) {
+      return res.status(400).json({ message: 'Falta o campo idProduto' })
     }
     try {
-      const hash = await bcrypt.hash(password, 10)
-      password = hash
-      await Users.updateOne({ _id: id }, { $set: { email, firstName, lastName, password } })
+      await ProdutosSchema.updateOne({ _id: idProduto, idCliente }, { $set: { nome, quantidade, preco, descricao } })
       return res.status(201).json({ message: 'Atualização de usuário concluida' })
     } catch (error) {
       return res.status(400).json({ error })
@@ -68,7 +72,7 @@ class ProdutosControllers {
     const { id: idUser } = req.user
     try {
       await ProdutosSchema.deleteOne({ _id: id, idCliente: idUser })
-      return res.status(200).json({ message: 'Usuário deletado com sucesso!!' })
+      return res.status(200).json({ message: 'Produto deletado com sucesso!!' })
     } catch (error) {
       return res.status(400).json({ error })
     }
