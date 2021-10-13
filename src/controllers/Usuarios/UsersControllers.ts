@@ -6,22 +6,10 @@ import Produtos from '../../schemas/ProdutosSchemas/ProdutosSchema'
 
 import bcrypt from 'bcrypt'
 
-import jwt from 'jsonwebtoken'
-
-import secureToken from '../Login/secureToken'
 class UserController {
   public async index (req: Request, res: Response): Promise<Response> {
-    const authorization = req.headers.authorization
-    if (!authorization) {
-      return res.status(403).json({ message: 'Falta o token' })
-    }
-    const bearer = authorization.split(' ')
-    const [, token] = bearer
     try {
-      const userToken = jwt.verify(token, secureToken)
-
-      const { id } = userToken
-
+      const { id } = req.user
       const users = await Users.find({ _id: id })
 
       const listaProdutos = await Produtos.find({ idCliente: id })
