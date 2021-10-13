@@ -68,7 +68,7 @@ class UserController {
       const hash = await bcrypt.hash(password, 10)
       req.body.password = hash
       await Users.updateOne({ _id: id }, { $set: { email, firstName, lastName, password } })
-      return res.status(400).json({ message: 'Atualização de usuário concluida' })
+      return res.status(201).json({ message: 'Atualização de usuário concluida' })
     } catch (error) {
       return res.status(400).json({ error })
     }
