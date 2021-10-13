@@ -48,6 +48,30 @@ class UserController {
       return res.status(400).json(error)
     }
   }
+
+  public async updateUser (req: Request, res: Response): Promise<Response> {
+    const { email, firstName, lastName, password } = req.body
+    const { id } = req.user
+    if (!email) {
+      return res.status(400).json({ message: 'Falta o campo email' })
+    }
+    if (!firstName) {
+      return res.status(400).json({ message: 'Falta o campo firstName' })
+    }
+    if (!lastName) {
+      return res.status(400).json({ message: 'Falta o campo lastName' })
+    }
+    if (!password) {
+      return res.status(400).json({ message: 'Falta o campo password' })
+    }
+    try {
+      const hash = await bcrypt.hash(password, 10)
+      req.body.password = hash
+      await Users.updateOne({ _id: id }, { $set: { email, firstName, lastName, password } })
+    } catch (error) {
+      return res.status(400).json({ error })
+    }
+  }
 }
 
 export default new UserController()
