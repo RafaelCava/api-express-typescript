@@ -10,9 +10,11 @@
 
 [x] - Criar Produto
 
-[] - Editar Produto (Autenticado)
+[x] - Editar Produto (Autenticado) [PUT]
 
-[] - Deletar Produto (Autenticado)
+[] - Editar Produto (Autenticado) [PATCH]
+
+[x] - Deletar Produto (Autenticado)
 
 [x] - Detalhar Dados do Usuário (Autenticado)
 
