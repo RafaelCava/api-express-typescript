@@ -8,7 +8,7 @@
 
 [x] - Deletar Usuário (Autenticado)
 
-[ x ] - Criar Produto
+[x] - Criar Produto
 
 [] - Editar Produto (Autenticado)
 
