@@ -60,7 +60,7 @@ class ProdutosControllers {
       return res.status(400).json({ message: 'Falta o campo idProduto' })
     }
     try {
-      await ProdutosSchema.updateOne({ _id: idProduto, idCliente }, { $set: { nome, quantidade, preco, descricao } })
+      await ProdutosSchema.updateOne({ _id: idProduto }, { idCliente: idCliente }, { $set: { nome, quantidade, preco, descricao } })
       return res.status(201).json({ message: 'Atualização de usuário concluida' })
     } catch (error) {
       return res.status(400).json({ error })

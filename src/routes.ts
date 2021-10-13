@@ -23,5 +23,7 @@ routes.route('/usuarios')
 routes.route('/produtos')
   .get(ProdutosControllers.index)
   .post(ProdutosControllers.createProduto)
+  .put(ProdutosControllers.updatePutProdutos)
+  .delete(ProdutosControllers.deleteProduto)
 
 export default routes
