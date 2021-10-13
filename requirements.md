@@ -4,9 +4,13 @@
 
 [] - Editar Usuário (Autenticado)
 
+[] - Deletar Usuário (Autenticado)
+
 [ x ] - Criar Produto
 
 [] - Editar Produto (Autenticado)
+
+[] - Deletar Produto (Autenticado)
 
 [ x ] - Detalhar Dados do Usuário (Autenticado)
 
