@@ -39,7 +39,8 @@ class ProdutosControllers {
   }
 
   public async updatePutProdutos (req: Request, res: Response): Promise<Response> {
-    const { nome, quantidade, preco, descricao, idProduto } = req.body
+    const { nome, quantidade, preco, descricao } = req.body
+    const { id: idProduto } = req.params
     const { id: idCliente } = req.user
     if (!nome) {
       return res.status(400).json({ message: 'Falta o campo nome' })

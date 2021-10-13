@@ -1,10 +1,12 @@
 # Requerimentos Funcionais
 
-[ x ] - Criar Usuário
+[x] - Criar Usuário
 
-[] - Editar Usuário (Autenticado)
+[x] - Editar Usuário (Autenticado) [PUT]
 
-[] - Deletar Usuário (Autenticado)
+[] - Editar Usuário (Autenticado) [PATCH]
+
+[x] - Deletar Usuário (Autenticado)
 
 [ x ] - Criar Produto
 
