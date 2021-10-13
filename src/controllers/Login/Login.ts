@@ -9,6 +9,10 @@ class Login {
     try {
       const users = await User.find({ email })
 
+      if (!users) {
+        return res.status(400).json({ message: 'Usuario não existe' })
+      }
+
       const user = users[0]
 
       const { password } = user
@@ -29,14 +33,7 @@ class Login {
 
       return res.status(200).json({ token })
     } catch (error) {
-      switch (error) {
-        case {}:
-          return res.status(400).json(error)
-          break
-        default:
-          return res.status(400).json(error)
-          break
-      }
+      return res.status(400).json({ error })
     }
   }
 }
