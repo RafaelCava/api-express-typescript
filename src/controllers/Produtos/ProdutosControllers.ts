@@ -65,7 +65,7 @@ class ProdutosControllers {
       if (!produto) {
         return res.status(400).json({ message: 'Produto não localizado!!' })
       }
-      if (produto.idCliente !== idCliente) {
+      if (produto[0].idCliente !== idCliente) {
         return res.status(400).json({ message: 'Produto não pertence a você!!' })
       }
       await ProdutosSchema.updateOne({ _id: idProduto }, { $set: { nome, quantidade, preco, descricao } })
