@@ -30,15 +30,29 @@ class UserController {
     if (!email) {
       return res.status(400).json({ message: 'Falta o campo email' })
     }
+
+    try {
+      const user = await Users.findOne({ email })
+
+      if (user) {
+        return res.status(400).json({ message: 'Email já cadastrado!!' })
+      }
+    } catch (error) {
+      return res.status(400).json({ error })
+    }
+
     if (!firstName) {
       return res.status(400).json({ message: 'Falta o campo firstName' })
     }
+
     if (!lastName) {
       return res.status(400).json({ message: 'Falta o campo lastName' })
     }
+
     if (!password) {
       return res.status(400).json({ message: 'Falta o campo password' })
     }
+
     try {
       const hash = await bcrypt.hash(password, 10)
       req.body.password = hash
@@ -52,22 +66,39 @@ class UserController {
   public async updatePutUser (req: Request, res: Response): Promise<Response> {
     let { email, firstName, lastName, password } = req.body
     const { id } = req.user
+
+    try {
+      const user = await Users.findOne({ _id: id })
+      if (!user) {
+        return res.status(400).json({ message: 'Usuário não encontrado!!' })
+      }
+    } catch (error) {
+      return res.status(400).json({ error })
+    }
+
     if (!email) {
       return res.status(400).json({ message: 'Falta o campo email' })
     }
+
     if (!firstName) {
       return res.status(400).json({ message: 'Falta o campo firstName' })
     }
+
     if (!lastName) {
       return res.status(400).json({ message: 'Falta o campo lastName' })
     }
+
     if (!password) {
       return res.status(400).json({ message: 'Falta o campo password' })
     }
+
     try {
       const hash = await bcrypt.hash(password, 10)
+
       password = hash
+
       await Users.updateOne({ _id: id }, { $set: { email, firstName, lastName, password } })
+
       return res.status(201).json({ message: 'Atualização de usuário concluida' })
     } catch (error) {
       return res.status(400).json({ error })
