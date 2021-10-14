@@ -70,7 +70,7 @@ class UserController {
     try {
       const user = await Users.findOne({ _id: id })
       if (!user) {
-        return res.status(400).json({ message: 'Usuário não encontrado!!' })
+        return res.status(404).json({ message: 'Usuário não encontrado!!' })
       }
     } catch (error) {
       return res.status(400).json({ error })
