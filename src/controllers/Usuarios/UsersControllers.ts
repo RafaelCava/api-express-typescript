@@ -7,6 +7,10 @@ import Produtos from '../../schemas/ProdutosSchemas/ProdutosSchema'
 import bcrypt from 'bcrypt'
 
 class UserController {
+  public async teste (req: Request, res: Response): Promise<Response> {
+    return res.json('teste')
+  }
+
   public async index (req: Request, res: Response): Promise<Response> {
     try {
       const { id } = req.user
