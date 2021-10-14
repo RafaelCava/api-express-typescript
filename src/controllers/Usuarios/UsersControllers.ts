@@ -35,7 +35,7 @@ class UserController {
       const user = await Users.findOne({ email })
 
       if (user) {
-        return res.status(400).json({ message: 'Email já cadastrado!!' })
+        return res.status(400).json({ message: 'Email já está cadastrado!!' })
       }
     } catch (error) {
       return res.status(400).json({ error })
