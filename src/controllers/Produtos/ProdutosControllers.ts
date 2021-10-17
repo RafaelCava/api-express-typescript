@@ -42,6 +42,17 @@ class ProdutosControllers {
     const { nome, quantidade, preco, descricao } = req.body
     const { id: idProduto } = req.params
     const { id: idCliente } = req.user
+    try {
+      const produto = await ProdutosSchema.find({ _id: idProduto })
+      if (!produto) {
+        return res.status(400).json({ message: 'Produto não localizado!!' })
+      }
+      if (produto[0].idCliente !== idCliente) {
+        return res.status(400).json({ message: 'Produto não pertence a você!!' })
+      }
+    } catch (error) {
+      return res.status(400).json({ error })
+    }
     if (!nome) {
       return res.status(400).json({ message: 'Falta o campo nome' })
     }
@@ -61,13 +72,6 @@ class ProdutosControllers {
       return res.status(400).json({ message: 'Falta o campo idProduto' })
     }
     try {
-      const produto = await ProdutosSchema.find({ _id: idProduto })
-      if (!produto) {
-        return res.status(400).json({ message: 'Produto não localizado!!' })
-      }
-      if (produto.idCliente !== idCliente) {
-        return res.status(400).json({ message: 'Produto não pertence a você!!' })
-      }
       await ProdutosSchema.updateOne({ _id: idProduto }, { $set: { nome, quantidade, preco, descricao } })
       return res.status(201).json({ message: 'Atualização de usuário concluida' })
     } catch (error) {

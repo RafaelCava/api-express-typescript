@@ -18,7 +18,7 @@ class App {
   }
 
   private database (): void {
-    const uri = 'mongodb://localhost:27017/tsnode'
+    const uri = 'mongodb+srv://dbAdmin:12345@tsnode.fog8d.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
     mongoose.connect(uri)
   }
 
