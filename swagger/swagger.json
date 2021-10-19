@@ -1,15 +1,15 @@
 {
   "swagger": "2.0",
   "info": {
-    "version": "1.0.0",
-    "title": "REST API",
+    "version": "1.1.0",
+    "title": "Api Typescript",
     "description": ""
   },
-  "host": "localhost:3000",
+  "host": "api-types-rafael.herokuapp.com",
   "basePath": "/",
   "tags": [],
   "schemes": [
-    "http"
+    "https"
   ],
   "consumes": [],
   "produces": [],
