@@ -2,6 +2,8 @@ import express from 'express'
 import cors from 'cors'
 import mongoose from 'mongoose'
 import routes from './routes'
+import swaggerUi from 'swagger-ui-express'
+import swaggerJson from '../swagger/swagger.json'
 class App {
   public express: express.Application
 
@@ -15,6 +17,7 @@ class App {
   private middlewares (): void {
     this.express.use(express.json())
     this.express.use(cors())
+    this.express.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerJson))
   }
 
   private database (): void {
