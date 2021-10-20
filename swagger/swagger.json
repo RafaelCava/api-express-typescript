@@ -175,7 +175,7 @@
       },
       "post": {
         "tags": [],
-        "description": "",
+        "description": "Rota para criar um produto para o cliente (Autenticado)",
         "parameters": [
           {
             "name": "obj",
@@ -218,7 +218,7 @@
     "/produtos/{id}": {
       "put": {
         "tags": [],
-        "description": "",
+        "description": "Rota para atualizar um produto utilizando o ID do mesmo, somente se o usuario (Autenticado) for o criador desse produto",
         "parameters": [
           {
             "name": "id",
@@ -262,7 +262,7 @@
       },
       "delete": {
         "tags": [],
-        "description": "",
+        "description": "Rota para deletar produto",
         "parameters": [
           {
             "name": "id",
