@@ -159,7 +159,7 @@
     "/produtos": {
       "get": {
         "tags": [],
-        "description": "",
+        "description": "Rota para retornar todos os produtos de um cliente (Autenticado)",
         "parameters": [],
         "responses": {
           "200": {
