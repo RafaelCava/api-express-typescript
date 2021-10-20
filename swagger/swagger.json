@@ -18,7 +18,7 @@
     "/usuarios": {
       "post": {
         "tags": [],
-        "description": "",
+        "description": "Rota para criar usuário, todos os campos são obrigatórios",
         "parameters": [
           {
             "name": "obj",
@@ -53,7 +53,7 @@
       },
       "get": {
         "tags": [],
-        "description": "",
+        "description": "Rota para detalhar os dados do usuário (Autenticado)",
         "parameters": [],
         "responses": {
           "200": {
@@ -69,7 +69,7 @@
       },
       "put": {
         "tags": [],
-        "description": "",
+        "description": "Atualizar os campos do usuário (Autenticado), todos os campos são obrigatórios",
         "parameters": [
           {
             "name": "obj",
@@ -110,7 +110,7 @@
       },
       "delete": {
         "tags": [],
-        "description": "",
+        "description": "Rota exclusão do usuário",
         "parameters": [],
         "responses": {
           "200": {
