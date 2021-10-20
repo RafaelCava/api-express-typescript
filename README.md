@@ -21,7 +21,7 @@ npm run start
 yarn start
 ```
 
-## Documentação Será Criada Utilizando Swagger (Em Breve ⭐)
+# Documentação disponível na rota '/docs'
 
 # Tecnologias Utilizadas
  
