@@ -69,7 +69,7 @@
       },
       "put": {
         "tags": [],
-        "description": "Atualizar os campos do usuário (Autenticado), todos os campos são obrigatórios",
+        "description": "Rota para atualizar os campos do usuário (Autenticado), todos os campos são obrigatórios",
         "parameters": [
           {
             "name": "obj",
@@ -110,7 +110,7 @@
       },
       "delete": {
         "tags": [],
-        "description": "Rota exclusão do usuário",
+        "description": "Rota para exclusão do usuário (Autenticado)",
         "parameters": [],
         "responses": {
           "200": {
