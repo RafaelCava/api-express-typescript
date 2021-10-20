@@ -128,7 +128,7 @@
     "/login": {
       "get": {
         "tags": [],
-        "description": "",
+        "description": "Rota para esta realizando o login e receber um token para realizar algumas interações dentro da API, todos os campos são obrigatórios",
         "parameters": [
           {
             "name": "obj",
