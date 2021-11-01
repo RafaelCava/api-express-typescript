@@ -1,9 +1,28 @@
-version: "3"
+version: '3.1'
 
-services: 
+services:
 
   app:
     build: .
-    container_name: teste
-    ports: 
+    restart: always
+    container_name: teste-tallos
+    entrypoint: sh ./.docker/entrypoint.sh
+    volumes:
+      - ./:/usr/app
+    ports:
       - 3000:3333
+
+  db:
+    build: ./src/data/
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: teste
+      POSTGRES_USER: teste
+    volumes:
+    - ./src/data:/usr/app
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080

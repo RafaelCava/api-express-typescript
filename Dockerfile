@@ -1,9 +1,11 @@
 FROM node:alpine
 
-EXPOSE 3333
+WORKDIR /usr/app
+
+COPY package*.json .
+
+RUN yarn
 
 COPY . .
 
-RUN yarn 
-
-CMD ["yarn", "dev"]
+EXPOSE 3333
