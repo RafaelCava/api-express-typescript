@@ -4,11 +4,17 @@ import Login from './controllers/Login/Login'
 import UserControllers from './controllers/Usuarios/UsersControllers'
 
 import ProdutosControllers from './controllers/Produtos/ProdutosControllers'
+
+import OportunidadeController from './controllers/Oportunidades/oportunidades.service'
+
 import verifyLogin from './middlewares/verifyLogin'
 
 const routes = Router()
 
 // routes.get('/', UserControllers.teste)
+
+routes.route('/oportunidades')
+  .post(OportunidadeController.create)
 
 routes.route('/usuarios')
   .post(UserControllers.createUser)
