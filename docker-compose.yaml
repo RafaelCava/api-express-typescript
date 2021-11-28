@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+
+  app:
+    build: .
+    entrypoint: sh ./.docker/entrypoint.sh
+    container_name: api_types
+    tty: true
+    ports:
+      - 3000:3000
+    volumes:
+      - .:/home/node/app
