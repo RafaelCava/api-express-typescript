@@ -14,12 +14,6 @@ class OportunidadeController {
     if (!req.body.vendedorId) {
       return res.status(400).json({ error: { message: 'falta o id do vendedor!' } })
     }
-    if (!req.body.oportunidadeNome) {
-      return res.status(400).json({ error: { message: 'falta o nome da Oportunidade!' } })
-    }
-    if (!req.body.vendedorNome) {
-      return res.status(400).json({ error: { message: 'falta o nome do vendedor!' } })
-    }
     try {
       const data = await OportunidadesSchemas.create(req.body)
       const response = await data.save()
