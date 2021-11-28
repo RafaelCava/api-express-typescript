@@ -8,6 +8,6 @@ services:
     container_name: api_types
     tty: true
     ports:
-      - 3000:3000
+      - 3000:3333
     volumes:
       - .:/home/node/app

@@ -13,8 +13,11 @@ const routes = Router()
 
 // routes.get('/', UserControllers.teste)
 
-routes.route('/oportunidades')
+routes.route('/oportunidades/create')
   .post(OportunidadeController.create)
+
+routes.route('/oportunidades/listar')
+  .get(OportunidadeController.listarOportunidades)
 
 routes.route('/usuarios')
   .post(UserControllers.createUser)
