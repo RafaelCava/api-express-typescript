@@ -1,8 +1,8 @@
 import { Request, Response } from 'express'
 
-import Users from '../../schemas/UserSchemas/UserSchema'
+import Users from '../../schemas/User/User.schema'
 
-import Produtos from '../../schemas/ProdutosSchemas/ProdutosSchema'
+import Produtos from '../../schemas/Produtos/Produtos.schema'
 
 import bcrypt from 'bcrypt'
 

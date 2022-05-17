@@ -1,5 +1,5 @@
 import { Request, Response } from 'express'
-import ProdutosSchema from '../../schemas/ProdutosSchemas/ProdutosSchema'
+import ProdutosSchema from '../../schemas/Produtos/Produtos.schema'
 class ProdutosControllers {
   public async index (req: Request, res: Response): Promise<Response> {
     try {

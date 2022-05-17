@@ -21,7 +21,7 @@ class App {
   }
 
   private database (): void {
-    const uri = 'mongodb+srv://dbAdmin:12345@tsnode.fog8d.mongodb.net/tallos_rd?retryWrites=true&w=majority'
+    const uri = process.env.MONGO_URI
     mongoose.connect(uri)
   }
 

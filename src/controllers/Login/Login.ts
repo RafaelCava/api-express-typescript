@@ -1,8 +1,8 @@
 import { Request, Response } from 'express'
-import User from '../../schemas/UserSchemas/UserSchema'
+import User from '../../schemas/User/User.schema'
 import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
-import secureToken from './secureToken'
+const secureToken = process.env.KEY_TOKEN
 class Login {
   public async index (req: Request, res: Response): Promise<Response> {
     const { email, password: senhaBody } = req.body

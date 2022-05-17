@@ -15,6 +15,8 @@ module.exports = {
   },
   rules: {
     'array-callback-return': 'off',
-    'no-unreachable': 'off'
+    'no-unreachable': 'off',
+    'import/first': 'off',
+    '@typescript-eslint/no-var-requires': 'off'
   }
 }

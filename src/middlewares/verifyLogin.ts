@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from 'express'
 import jwt from 'jsonwebtoken'
-import secureToken from '../controllers/Login/secureToken'
+const secureToken = process.env.KEY_TOKEN
 
 class VerifyLogin {
   public async index (req: Request, res: Response, next: NextFunction): Promise<Response> {

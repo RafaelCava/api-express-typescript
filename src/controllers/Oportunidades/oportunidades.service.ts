@@ -1,5 +1,5 @@
 import { Request, Response } from 'express'
-import OportunidadesSchemas from '../../schemas/OportunidadesSchemas/OportunidadesSchema'
+import OportunidadesSchemas from '../../schemas/Oportunidades/Oportunidades.schema'
 
 class OportunidadeController {
   public async listarOportunidades (req: Request, res: Response): Promise<Response> {
